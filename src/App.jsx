@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   
@@ -8,7 +9,8 @@ function App() {
     <>
       <div>
         <Nav/>
-        <div className = "bg-gray-800 w-full h-screen"></div>
+        <div className = "bg-gray-800 w-full h-auto"></div>
+        <Footer/>
       </div>
     </>
   )
