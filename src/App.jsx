@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { HashRouter, Routes, Route} from 'react-router-dom';
+import Home from './pages/Home.jsx';
+import Resume from './pages/Resume.jsx';
 import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -6,14 +9,15 @@ function App() {
   const [theme, setTheme] = useState("");
 
   return (
-    <div className={`${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-800"} min-h-screen`}>
+    <HashRouter>
+
       <Nav theme={theme} setTheme={setTheme} />
-      <div className="p-10">
-        <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
-        <p>This is some content that will also change color based on the selected theme.</p>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home theme= {theme}/>} />
+        <Route path="/resume" element={<Resume theme = {theme} />} />
+      </Routes>
       <Footer />
-    </div>
+    </HashRouter>
   );
 }
 
