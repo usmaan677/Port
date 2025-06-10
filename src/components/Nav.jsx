@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { AcademicCapIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import {Link} from 'react-router-dom';
+import CircularText from '../reactbits/CircularText.jsx';
+  
 
 const Nav = ({ theme, setTheme }) =>{
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,8 +12,14 @@ const Nav = ({ theme, setTheme }) =>{
     <div className={`${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-300 text-gray-800"} shadow-md w-full`}>
       <div className='flex justify-between md:px-10 py-4 px-7'>
         <Link to  = "/">
-            <div className="flex text-2xl cursor-pointer gap-5 items-center">
-              <AcademicCapIcon className="h-8 w-8" />
+            <div className="flex text-2xl cursor-pointer gap-10 items-center">
+            <CircularText
+                text="OOOOO"
+                onHover="speedUp"
+                spinDuration={20}
+                className="custom-class"
+                />
+              {/* <AcademicCapIcon className="h-8 w-8" /> */}
               <span className="font-bold">Usmaan</span>
             </div>
         </Link>
