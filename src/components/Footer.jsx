@@ -6,7 +6,7 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa6';
 
 const Footer = ({theme}) => {
   return (
-    <footer className = {`${theme === "dark" ? "bg-gray-900 text-gray-300" : "bg-gray-300 text-gray-800"} px-4 md:px-20 lg:px-28 py:10 shadow-md w-full`}>
+    <footer className = {`${theme === "dark" ? "bg-gray-900 text-gray-300" : "bg-gray-300 text-gray-800"} px-4 md:px-20 lg:px-28 shadow-md w-full border-t`}>
         <div className = 'grid grid-cols-1 md:grid-cols-3 gap-8 pt-5 pb-4'>
             <div className = ''>
                 <h2 className = 'text-center md:text-left text-lg font-bold mb-4'>
@@ -39,7 +39,7 @@ const Footer = ({theme}) => {
                 <h2 className = 'text-center md:text-left text-lg font-bold mb-0'>
                     Conect With Me
                 </h2>
-                <ul className = 'justify-center flex gap-10 md:gap-5 '>
+                <ul className = 'justify-center md:justify-normal flex gap-10 md:gap-5 '>
                     <li className = 'hover:text-red-500'>
                         
                         <a href = "https://www.instagram.com/usmaan.sa/" className = ' text-md ml-2'>
@@ -49,7 +49,7 @@ const Footer = ({theme}) => {
                     <li className = 'hover:text-blue-700'>
                         
                         <a href = "www.linkedin.com/in/sayedusmaan" className = 'text-md ml-2'>
-                            <FaLinkedin className = 'justify-center mb-1 text-2xl cursor-pointer hover:text-blue-700'/>
+                            <FaLinkedin className = 'mb-1 text-2xl cursor-pointer hover:text-blue-700'/>
                             <span>LinkedIn</span></a>
                     </li>
                     <li className = 'hover:text-purple-800'>
