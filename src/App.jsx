@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home theme= {theme}/>} />
         <Route path="/resume" element={<Resume theme = {theme} />} />
       </Routes>
-      <Footer />
+      <Footer theme = {theme}/>
     </HashRouter>
   );
 }

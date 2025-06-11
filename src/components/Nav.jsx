@@ -10,7 +10,7 @@ const Nav = ({ theme, setTheme }) =>{
 
   return (
     <div className={`${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-300 text-gray-800"} shadow-md w-full`}>
-      <div className='flex justify-between md:px-10 py-4 px-7'>
+      <div className='flex justify-between md:px-10 py-6 px-7'>
         <Link to  = "/">
             <div className="flex text-2xl cursor-pointer gap-10 items-center">
             <CircularText
@@ -53,7 +53,7 @@ const Nav = ({ theme, setTheme }) =>{
       </div>
 
       {menuOpen && (
-        <div className={`${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-300 text-gray-600"} text-center py-4 pb-3`}>
+        <div className={`${theme === "dark" ? "bg-gray-600 text-white" : "bg-gray-300 text-gray-600"} text-center py-4 pb-3`}>
           <ul className="space-y-3 text-lg">
             <li>
                 <Link to ="/" >Home</Link>
