@@ -31,8 +31,8 @@ const Contact = ({theme}) => {
     return (
         
         <section className = {`${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-800"} flex justify-center min-h-[80vh]`}>
-            <div className = {`${theme === "dark" ? "bg-gray-700" : "bg-white"} rounded-2xl shadow-lg p-10 w-full max-w-2xl m-10`}>
-                <form onSubmit={onSubmit} className = "w-full max-w-2xl p-10 space-y-6">
+            <div className = {`${theme === "dark" ? "bg-gray-700" : "bg-white"} rounded-2xl shadow-lg p-5 md:pd-10 w-full max-w-2xl m-10`}>
+                <form onSubmit={onSubmit} className = "w-full max-w-2xl md:p-10 space-y-6">
                     <h2 className = "text-center text-4xl font-extrabold">Contact Form</h2>
                     <div className = "flex flex-col space-y-2">
                         <label>Full Name</label>
