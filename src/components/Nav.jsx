@@ -29,7 +29,7 @@ const Nav = ({ theme, setTheme }) =>{
             <Link to="/" className="cursor-pointer hover:text-yellow-400">Home</Link>
             <li className="cursor-pointer hover:text-yellow-400">Experience</li>
             <Link to="/resume" className="cursor-pointer hover:text-yellow-400">Resume</Link>
-            <li className="cursor-pointer hover:text-yellow-400">Contact Me</li>
+            <Link to="/contact" className="cursor-pointer hover:text-yellow-400">Contact Me</Link>
             <li>
               <SunIcon onClick={() => setTheme("")} className="cursor-pointer h-6 w-6 hover:text-yellow-400" />
             </li>
@@ -65,7 +65,7 @@ const Nav = ({ theme, setTheme }) =>{
                 <Link to= "/resume" >Resume</Link>
             </li>
             <li>
-                <Link>Contact Me</Link>
+                <Link to="/contact">Contact Me</Link>
             </li>
           </ul>
         </div>

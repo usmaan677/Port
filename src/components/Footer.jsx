@@ -31,7 +31,7 @@ const Footer = ({theme}) => {
                         <Link to= "/resume" >Resume</Link>
                     </li>
                     <li className = 'hover:underline '>
-                        <Link>Contact Me</Link>
+                        <Link to="/contact" >Contact Me</Link>
                     </li>
                 </ul>
             </div>
