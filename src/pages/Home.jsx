@@ -13,10 +13,15 @@ const Home = ({theme}) => {
             <div className = "text-3xl md:text-5xl font-extrabold max-w-md break-words leading-tight self-center ">
                 <div style={{  }}>
                     <DecryptedText
+                        words={['Usmaan Sayed', 'Software Engineer', 'Creative Thinker']}
+                        className="text-4xl font-bold"
+                        animateOn="hover"
+                        />
+                    {/* <DecryptedText
                     text="Hi my name is Usmaan Sayed and I am an aspiring Software Engineer"
                     animateOn="view"
                     revealDirection="center"
-                    />
+                    /> */}
                 </div>
 
                 {/* <h1 className = "text-4xl font-extrabold">Hello I'm Usmaan Sayed!</h1> */}
