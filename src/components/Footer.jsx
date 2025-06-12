@@ -48,7 +48,7 @@ const Footer = ({theme}) => {
                     </li>
                     <li className = 'hover:text-blue-700'>
                         
-                        <a href = "www.linkedin.com/in/sayedusmaan" className = 'text-md ml-2'>
+                        <a href = "https://www.linkedin.com/in/sayedusmaan/" className = 'text-md ml-2'>
                             <FaLinkedin className = 'mb-1 text-2xl cursor-pointer hover:text-blue-700'/>
                             <span>LinkedIn</span></a>
                     </li>
