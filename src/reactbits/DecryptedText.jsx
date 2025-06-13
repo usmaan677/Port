@@ -14,7 +14,7 @@ export default function DecryptedText({
   const baseText = 'Hi, Welcome to my website, I am Usmaan Sayed and I am a ';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const scrambleSpeed = 100;
-  const wordChangeInterval = 3000;
+  const wordChangeInterval = 10000;
 
   const scramble = (targetText, callback) => {
     let iterations = 0;
