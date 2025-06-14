@@ -20,21 +20,14 @@ const Home = ({theme, experienceRef}) => {
             <div className = "w-60 h-60 md:w-100 md:h-100 rounded-full overflow-hidden shadow-md self-center ">
                 <img src = {myPhoto} alt  ="Usmaan Sayed" className = "border-2 border-white rounded-full object-cover w-full h-full "/>
             </div>
-            <div className = "text-3xl md:text-5xl font-extrabold max-w-md break-words leading-tight self-center ">
-                <div style={{  }}>
-                    <DecryptedText
-                        words={['Usmaan Sayed', 'Software Engineer', 'Creative Thinker']}
-                        className="text-4xl pt-5 md:pt-0 md:text-6xl font-bold"
-                        animateOn="hover"
-                        />
-                    {/* <DecryptedText
-                    text="Hi my name is Usmaan Sayed and I am an aspiring Software Engineer"
-                    animateOn="view"
-                    revealDirection="center"
-                    /> */}
+            <div className="text-3xl md:text-5xl font-extrabold max-w-md break-words leading-tight self-center">
+            <div className="inline-block min-w-[18ch] text-center">
+                <DecryptedText
+                words={['Usmaan Sayed', 'Software Engineer', 'Creative Thinker']}
+                className="text-4xl pt-5 md:pt-0 md:text-6xl font-bold"
+                animateOn="hover"
+                />
                 </div>
-
-                
             </div>
         </section>
         
@@ -42,7 +35,7 @@ const Home = ({theme, experienceRef}) => {
             <div className = 'pb-20'>
                 <h2 className=' px-10 md:px-40 pb-10 text-4xl md:text-4xl '>About Me</h2>
                 <p className = ' mx-10 md:mx-40 text-xl md:text-2xl md:mr-[50vh]'>Hey! I'm Usmaan Sayed, a passionate student majoring in computer science always interested in learning new technologies and building new projects.
-                    However, there is also much more to me than just coding. I love basketball, lego, robotics, and spedning time with friends!
+                    However, there is also much more to me than just coding. I love basketball, lego, robotics, and spending time with friends!
                 </p>
             </div>
             <div>

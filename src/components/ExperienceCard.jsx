@@ -1,51 +1,61 @@
 import React, { useState } from 'react';
 
-const ExperienceCard = ({ logo, company, dates, description, theme }) => {
-  const [showDetails, setShowDetails] = useState(false);
+const ExperienceCard = ({ logo, company, dates, description, theme, role, images }) => {
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <div
-      className={`${theme === "dark" ? "bg-gray-600" : "bg-gray-400"} relative group rounded-xl overflow-hidden shadow-lg`}
-    >
-      {/* Logo */}
-      <img src={logo} alt={company} className="w-full h-48 object-contain p-4" />
-
-      {/* Text Content */}
-      <div className="p-4 text-center">
-        <h3 className="text-lg font-bold">{company}</h3>
-        <p className="text-sm text-gray-200">{dates}</p>
-      </div>
-
-      {/* Overlay */}
+    <>
       <div
-        className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent text-white transition-opacity duration-300 flex flex-col justify-end p-4 gap-4
-        ${showDetails ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"} md:group-hover:opacity-100 md:pointer-events-auto`}
+        onClick={() => setShowModal(true)}
+        className={`
+          ${theme === "dark" ? "bg-gray-600" : "bg-gray-400"} 
+          relative group rounded-xl overflow-hidden shadow-lg cursor-pointer
+        `}
       >
-        <p className="text-sm">{description}</p>
+        {/* Logo */}
+        <img src={logo} alt={company} className="w-full h-48 object-contain p-4" />
 
-        {/* Show/Hide Button (visible only on mobile) */}
-        <div className="md:hidden text-center">
-          <button
-            onClick={() => setShowDetails(false)}
-            className="mt-2 px-4 py-1 rounded-full text-sm border bg-white text-gray-800 hover:bg-gray-100"
-          >
-            Hide Details
-          </button>
+        {/* Text Content */}
+        <div className="p-4 text-center">
+          <h3 className="text-lg font-bold">{company}</h3>
+          <p className="text-sm text-gray-200">{dates}</p>
+        </div>
+
+        {/* Hover Overlay */}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
+        >
+          <p className="text-sm">{description}</p>
         </div>
       </div>
 
-      {/* View Details Button (only visible when overlay is hidden) */}
-      {!showDetails && (
-        <div className="md:hidden text-center pb-4">
-          <button
-            onClick={() => setShowDetails(true)}
-            className="mt-2 px-4 py-1 rounded-full text-sm border bg-white text-gray-800 hover:bg-gray-100"
-          >
-            View Details
-          </button>
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/30 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 text-black dark:text-white max-w-3xl w-full p-6 rounded-lg relative shadow-2xl">
+            <button
+              className="absolute cursor-pointer top-2 right-4 text-xl font-bold"
+              onClick={() => setShowModal(false)}
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-2">{company}</h2>
+            <p className="italic mb-4">{role}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              {images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`${company} work ${index + 1}`}
+                  className="w-full h-48 object-cover rounded"
+                />
+              ))}
+            </div>
+            <p>{description}</p>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
