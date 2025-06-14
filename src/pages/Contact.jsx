@@ -36,18 +36,18 @@ const Contact = ({theme}) => {
                     <h2 className = "text-center text-4xl font-extrabold">Contact Form</h2>
                     <div className = "flex flex-col space-y-2">
                         <label>Full Name</label>
-                        <input type="text" className ='bg-white text-black p-2' placeholder ='Enter your name' required name="name" />
+                        <input type="text" className ={`${theme === "dark" ? "bg-white" : "bg-gray-200"} text-black p-2`} placeholder ='Enter your name' required name="name" />
                     </div>
                     <div className = "flex flex-col space-y-2">
                         <label>Email Address</label>
-                        <input type="email" className ='bg-white text-black p-2' placeholder ='Enter your email' required name="email" />
+                        <input type="email" className ={`${theme === "dark" ? "bg-white" : "bg-gray-200"} text-black p-2`}  placeholder ='Enter your email' required name="email" />
                     </div>
                     <div className = "flex flex-col space-y-2">
                         <label>Your Message</label>
-                        <textarea name="message"className ='bg-white text-black p-2 pb-15' placeholder = 'Enter your message' required></textarea>
+                        <textarea name="message"className ={`${theme === "dark" ? "bg-white" : "bg-gray-200"} text-black p-2 pb-25`} placeholder = 'Enter your message' required></textarea>
                     </div>
-                    <div className ="text-center ">
-                        <button className = "border rounded-full p-2 cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition-colors duration-300" type = 'submit'>Send Message</button>
+                    <div className =" pt-10 text-center ">
+                        <button className = "border text-xl rounded-full p-4 cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition-colors duration-300" type = 'submit'>Send Message</button>
                     </div>
                 </form>
             </div>

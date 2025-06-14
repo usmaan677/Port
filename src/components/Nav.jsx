@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { AcademicCapIcon, Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/solid';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import CircularText from '../reactbits/CircularText.jsx';
+
   
 
-const Nav = ({ theme, setTheme }) =>{
+const Nav = ({ theme, setTheme, experienceRef }) =>{
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
 
   return (
@@ -27,7 +29,17 @@ const Nav = ({ theme, setTheme }) =>{
         <div className="hidden md:block">
           <ul className={`flex gap-8 text-lg font-semibold items-center ${theme === "dark" ? "text-white" : "text-gray-800"}`}>
             <Link to="/" className="cursor-pointer hover:text-yellow-400">Home</Link>
-            <li className="cursor-pointer hover:text-yellow-400">Experience</li>
+            <Link
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/#experience'); 
+                }}
+                className="cursor-pointer hover:text-yellow-400"
+                >
+                Experience
+            </Link>
+
+
             <Link to="/resume" className="cursor-pointer hover:text-yellow-400">Resume</Link>
             <Link to="/contact" className="cursor-pointer hover:text-yellow-400">Contact Me</Link>
             <li>
@@ -58,8 +70,14 @@ const Nav = ({ theme, setTheme }) =>{
             <li>
                 <Link to ="/" >Home</Link>
             </li>
-            <li>
-                <Link>Experience</Link>
+            <li
+                onClick={() => {
+                experienceRef?.current?.scrollIntoView({ behavior: 'smooth' });
+                setMenuOpen(false);
+                }}
+                className="cursor-pointer"
+            >
+                Experience
             </li>
             <li>
                 <Link to= "/resume" >Resume</Link>

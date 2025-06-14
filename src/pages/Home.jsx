@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import myPhoto from '/Pfp.png';
 import DecryptedText from '../reactbits/DecryptedText';
 import ScrollVelocity from '../reactbits/ScrollVelocity';
+import ExperienceSection from '../components/ExperienceSection.jsx';
+import {useLocation} from 'react-router-dom';
 
 
-const Home = ({theme}) => {
+const Home = ({theme, experienceRef}) => {
+  const location = useLocation();
+  useEffect(() =>{
+    if (location.hash === '#experience'){
+        experienceRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+  
   return (
     <div className={`${theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-800"} min-h-screen`}>
         <section className = "flex items-center justify-center gap-1 md:gap-30 p-10 max-w-6xl mx-auto flex-col md:flex-row text-center md:text-left mb-16 ">
@@ -28,13 +37,14 @@ const Home = ({theme}) => {
                 
             </div>
         </section>
-        <div className = 'pb-20'>
-            <h2 className=' px-10 md:px-40 pb-10 text-4xl md:text-4xl '>About Me</h2>
-            <p className = ' mx-10 md:mx-40 md:text-2xl md:mr-[50vh]'>Hey! I'm Usmaan Sayed, a passionate student majoring in computer science always interested in learning new technologies and building new projects.
-                However, there is also much more to me than just coding. I love basketball, lego, robotics, and spedning time with friends!
-            </p>
-        </div>
+        
         <section>
+            <div className = 'pb-20'>
+                <h2 className=' px-10 md:px-40 pb-10 text-4xl md:text-4xl '>About Me</h2>
+                <p className = ' mx-10 md:mx-40 md:text-2xl md:mr-[50vh]'>Hey! I'm Usmaan Sayed, a passionate student majoring in computer science always interested in learning new technologies and building new projects.
+                    However, there is also much more to me than just coding. I love basketball, lego, robotics, and spedning time with friends!
+                </p>
+            </div>
             <div>
                 {/* <ScrollVelocity
                     texts={['Experience', 'Experience']} 
@@ -43,7 +53,7 @@ const Home = ({theme}) => {
                     /> */}
             </div>
         </section>
-       
+        <ExperienceSection  ref= {experienceRef} theme={theme} />
       </div>
   )
 };

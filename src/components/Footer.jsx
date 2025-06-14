@@ -1,10 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { } from '@heroicons/react/24/solid';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa6';
 
+
 const Footer = ({theme}) => {
+  const navigate = useNavigate();
   return (
     <footer className = {`${theme === "dark" ? "bg-gray-900 text-gray-300" : "bg-gray-300 text-gray-800"} px-4 md:px-20 lg:px-28 shadow-md w-full border-t`}>
         <div className = 'grid grid-cols-1 md:grid-cols-3 gap-8 pt-5 pb-4'>
@@ -25,7 +27,15 @@ const Footer = ({theme}) => {
                     <Link to ="/" >Home</Link>
                     </li>
                     <li className = 'hover:underline '>
-                        <Link>Experience</Link>
+                        <Link
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigate('/#experience'); 
+                            }}
+                            className="cursor-pointer hover:text-yellow-400"
+                            >
+                            Experience
+                        </Link>
                     </li>
                     <li className = 'hover:underline '> 
                         <Link to= "/resume" >Resume</Link>
