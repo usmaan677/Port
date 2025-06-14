@@ -14,14 +14,14 @@ const Nav = ({ theme, setTheme, experienceRef }) =>{
     <div className={`${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-300 text-gray-800"} shadow-md w-full`}>
       <div className='flex justify-between md:px-10 py-6 px-7'>
         <Link to  = "/">
-            <div className="flex text-2xl cursor-pointer gap-10 items-center">
-            <CircularText
+            <div className="flex text-2xl cursor-pointer gap-5 items-center">
+            {/* <CircularText
                 text="OOOOO"
                 onHover="speedUp"
                 spinDuration={20}
                 className="custom-class"
-                />
-              {/* <AcademicCapIcon className="h-8 w-8" /> */}
+                /> */}
+              <AcademicCapIcon className="h-10 w-10" />
               <span className="font-bold">Usmaan</span>
             </div>
         </Link>

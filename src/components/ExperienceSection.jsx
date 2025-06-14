@@ -33,7 +33,7 @@ const ExperienceSection = forwardRef(({ theme }, ref) => {
       company: "UMR",
       dates: "2023 – Present",
       role: "Club Intern",
-      images: ["/umrimg.png", "/umr2.jpg"],
+      images: ["/umrimg.png", "/umr2.png"],
       description: "Planned and participated in fundraisers and food drives benefiting global and local underprivileged communities."
     }
   ];

@@ -31,8 +31,10 @@ const ExperienceCard = ({ logo, company, dates, description, theme, role, images
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/30 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 text-black dark:text-white max-w-3xl w-full p-6 rounded-lg relative shadow-2xl">
+        <div className={`${theme === "dark" ? "bg-black/30" : "bg-white/30"} fixed inset-0 z-50 flex items-center justify-center px-4 backdrop-blur-sm`}
+>
+          <div className={`${theme === "dark" ? "bg-gray-700 text-white" : "bg-gray-100 text-black"} max-w-3xl w-full p-6 rounded-lg relative shadow-2xl`}
+          >
             <button
               className="absolute cursor-pointer top-2 right-4 text-xl font-bold"
               onClick={() => setShowModal(false)}

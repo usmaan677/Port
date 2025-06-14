@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import myPhoto from '/Pfp.png';
 import DecryptedText from '../reactbits/DecryptedText';
 import ScrollVelocity from '../reactbits/ScrollVelocity';
+
+
 import ExperienceSection from '../components/ExperienceSection.jsx';
 import {useLocation} from 'react-router-dom';
 
@@ -47,6 +49,7 @@ const Home = ({theme, experienceRef}) => {
             </div>
         </section>
         <ExperienceSection  ref= {experienceRef} theme={theme} />
+        
       </div>
   )
 };
