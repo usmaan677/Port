@@ -9,13 +9,13 @@ const ExperienceSection = forwardRef(({ theme }, ref) => {
       company: "Empiric Technology",
       dates: "Summer 2025",
       role: "Technical Consultant Intern",
-      images: ["/empiric1.jpg", "/empiric2.jpg"],
+      images: ["/empiric1.png", "/empiriclogo.jpeg"],
       description: "Customized ERP systems using AL and Business Central. Built secure role centers and optimized client workflows."
     },
     {
       logo: "/elitelogo.png",
       company: "Elite Robotics",
-      dates: "Fall 2024 – Spring 2025",
+      dates: "Summer 2024 – Present",
       role: "Founding Member/Lead Coach",
       images: ["/Elite Robotics-2.png", "/1.png"],
       description: "Led weekly robotics sessions for kids and organized recruitment campaigns using social media outreach."
@@ -23,7 +23,7 @@ const ExperienceSection = forwardRef(({ theme }, ref) => {
     {
       logo: "/maryamlogo.png",
       company: "Maryam Masjid",
-      dates: "2022 – Present",
+      dates: "2024 – Present",
       role: "Event Organizer",
       images: ["/maryam1.png", "/maryam2.png"],
       description: "Organized community events for 500+ community members, managed volunteer teams, and coordinated logistics."
@@ -31,7 +31,7 @@ const ExperienceSection = forwardRef(({ theme }, ref) => {
     {
       logo: "/umrlogo.jpg",
       company: "UMR",
-      dates: "2023 – Present",
+      dates: "Spring 2025 – Summer 2025",
       role: "Club Intern",
       images: ["/umrimg.png", "/umr2.png"],
       description: "Planned and participated in fundraisers and food drives benefiting global and local underprivileged communities."
