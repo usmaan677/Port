@@ -9,7 +9,7 @@ const ExperienceCard = ({ logo, company, dates, description, theme, role, images
         onClick={() => setShowModal(true)}
         className={`
           ${theme === "dark" ? "bg-gray-600" : "bg-gray-400"} 
-          relative group rounded-xl overflow-hidden shadow-lg cursor-pointer
+          relative group rounded-xl overflow-hidden pt-10 shadow-lg cursor-pointer
         `}
       >
         {/* Logo */}
@@ -18,7 +18,9 @@ const ExperienceCard = ({ logo, company, dates, description, theme, role, images
         {/* Text Content */}
         <div className="p-4 text-center">
           <h3 className="text-lg font-bold">{company}</h3>
-          <p className="text-sm text-gray-200">{dates}</p>
+          <p className="text-sm">{dates}</p>
+          <p className="text-sm">(Click to View Details)</p>
+          
         </div>
 
         {/* Hover Overlay */}

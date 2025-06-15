@@ -32,7 +32,8 @@ const Nav = ({ theme, setTheme, experienceRef }) =>{
             <Link
                 onClick={(e) => {
                     e.preventDefault();
-                    navigate('/#experience'); 
+                    navigate('/#experience');
+                    setMenuOpen(false); 
                 }}
                 className="cursor-pointer hover:text-yellow-400"
                 >
@@ -68,7 +69,7 @@ const Nav = ({ theme, setTheme, experienceRef }) =>{
         <div className={`${theme === "dark" ? "bg-gray-600 text-white" : "bg-gray-300 text-gray-600"} text-center py-4 pb-3`}>
           <ul className="space-y-3 text-lg">
             <li>
-                <Link to ="/" >Home</Link>
+                <Link onClick = {() =>{setMenuOpen(false)}} to ="/" >Home</Link>
             </li>
             <li
                 onClick={() => {
@@ -80,10 +81,10 @@ const Nav = ({ theme, setTheme, experienceRef }) =>{
                 Experience
             </li>
             <li>
-                <Link to= "/resume" >Resume</Link>
+                <Link onClick = {() =>{setMenuOpen(false)}} to= "/resume" >Resume</Link>
             </li>
             <li>
-                <Link to="/contact">Contact Me</Link>
+                <Link onClick = {() =>{setMenuOpen(false)}} to="/contact">Contact Me</Link>
             </li>
           </ul>
         </div>
