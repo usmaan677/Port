@@ -22,7 +22,7 @@ const ExperienceSection = forwardRef(({ theme }, ref) => {
     },
     {
       logo: "/maryamlogo.png",
-      company: "Maryam Masjid",
+      company: "MIC Center",
       dates: "2024 – Present",
       role: "Event Organizer",
       images: ["/maryam1.png", "/maryam2.png"],
