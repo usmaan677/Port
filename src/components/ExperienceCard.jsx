@@ -26,11 +26,13 @@ const ExperienceCard = ({
     <motion.div
       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
       whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`relative ${theme === 'dark' 
         ? 'bg-gray-800/50 hover:bg-gray-800/70 border-gray-700/50' 
         : 'bg-white/70 hover:bg-white/90 border-gray-200/50'} 
-        backdrop-blur-xl rounded-2xl border transition-all duration-300 overflow-hidden group cursor-pointer`}
+        backdrop-blur-sm md:backdrop-blur-xl rounded-2xl border transition-all duration-300 overflow-hidden group cursor-pointer`}
+      style={{ willChange: 'transform' }}
       onClick={() => onToggle(id)}
     >
       {/* Main Card Content */}
@@ -114,8 +116,9 @@ const ExperienceCard = ({
       <motion.div
         initial={false}
         animate={{ height: expanded ? 'auto' : 0, opacity: expanded ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
         className="overflow-hidden"
+        style={{ willChange: 'height, opacity', contain: 'layout paint' }}
       >
         <div className={`px-8 pb-8 border-t ${theme === 'dark' ? 'border-gray-700/50' : 'border-gray-200/50'}`}>
           <div className="pt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">

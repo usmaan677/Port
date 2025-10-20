@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import myPhoto from '/Pfp.png';
 import DecryptedText from '../reactbits/DecryptedText';
 import ExperienceSection from '../components/ExperienceSection.jsx';
@@ -7,6 +7,25 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Home = ({ theme, experienceRef }) => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [expandedGroups, setExpandedGroups] = useState({});
+  const toggleGroup = (cat) => setExpandedGroups((prev) => ({ ...prev, [cat]: !prev[cat] }));
+
+  // Grouped technologies
+  const techGroups = {
+    Languages: ['Python','C++','JavaScript','HTML','CSS','AL Language'],
+    Frontend: ['React.js','Next.js','Tailwind CSS','Framer Motion','UI/UX Design'],
+    'Backend & APIs': ['Node.js','Express.js','REST APIs','Firebase','Firestore'],
+    'Tools & Workflow': ['Git','GitHub','GitHub Desktop','npm','Visual Studio Code','Command Line','Puppeteer','PDF Processing'],
+    Platforms: ['Vercel','Replit'],
+    'Business Apps': ['Microsoft Dynamics 365 Business Central'],
+    Concepts: ['Data Structures','Algorithms'],
+  };
+
+  // Accent dot colors for variety
+  const dotColors = theme === 'dark'
+    ? ['bg-blue-400','bg-purple-400','bg-pink-400','bg-emerald-400','bg-amber-400']
+    : ['bg-blue-500','bg-purple-500','bg-pink-500','bg-emerald-500','bg-amber-500'];
 
   useEffect(() =>{
     if (location.hash === '#experience'){
@@ -33,13 +52,13 @@ const Home = ({ theme, experienceRef }) => {
   return (
     <div className={`${theme === "dark" 
       ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" 
-      : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-800"} min-h-screen relative overflow-hidden`}>
+      : "bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-800"} min-h-screen relative overflow-hidden touch-pan-y`}>
       
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className={`absolute top-20 left-10 w-72 h-72 ${theme === "dark" ? "bg-blue-600" : "bg-blue-400"} rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse`}></div>
-        <div className={`absolute top-40 right-10 w-96 h-96 ${theme === "dark" ? "bg-purple-600" : "bg-purple-400"} rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000`}></div>
-        <div className={`absolute -bottom-32 left-1/2 w-80 h-80 ${theme === "dark" ? "bg-pink-600" : "bg-pink-400"} rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-500`}></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ contain: 'paint' }}>
+        <div className={`absolute top-20 left-10 w-72 h-72 ${theme === "dark" ? "bg-blue-600" : "bg-blue-400"} rounded-full mix-blend-multiply ${"blur-md md:blur-xl"} opacity-15 md:opacity-20 md:animate-pulse`} style={{ willChange: 'transform' }}></div>
+        <div className={`absolute top-40 right-10 w-96 h-96 ${theme === "dark" ? "bg-purple-600" : "bg-purple-400"} rounded-full mix-blend-multiply ${"blur-md md:blur-xl"} opacity-15 md:opacity-20 md:animate-pulse delay-1000`} style={{ willChange: 'transform' }}></div>
+        <div className={`absolute -bottom-32 left-1/2 w-80 h-80 ${theme === "dark" ? "bg-pink-600" : "bg-pink-400"} rounded-full mix-blend-multiply ${"blur-md md:blur-xl"} opacity-15 md:opacity-20 md:animate-pulse delay-500`} style={{ willChange: 'transform' }}></div>
       </div>
 
       {/* Hero Section */}
@@ -89,6 +108,47 @@ const Home = ({ theme, experienceRef }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies & Tools Section */}
+      <section className="relative px-10 md:px-20 lg:px-40 pb-16">
+        <div className={`${theme === "dark" ? "bg-gray-800/50" : "bg-white/50"} backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl border ${theme === "dark" ? "border-gray-700/50" : "border-gray-200/50"}`}>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r ${theme === "dark" ? "from-white to-gray-300" : "from-gray-800 to-gray-600"} bg-clip-text text-transparent`}>
+            Technologies & Tools
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(techGroups).map(([category, items]) => (
+              <div key={category}>
+                <h3 className={`text-sm font-semibold uppercase tracking-wide mb-3 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>{category}</h3>
+                {/* Single list clamped to one row when collapsed */}
+                <div
+                  className={`flex flex-wrap gap-3 transition-all duration-300 ${expandedGroups[category] ? '' : 'overflow-hidden max-h-10 md:max-h-12'}`}
+                >
+                  {items.map((t, i) => (
+                    <span
+                      key={t}
+                      className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 ${theme === "dark" 
+                        ? "bg-gradient-to-r from-gray-800/60 to-gray-700/60 text-gray-200 border border-gray-600/50 shadow-sm" 
+                        : "bg-gradient-to-r from-white to-gray-50 text-gray-700 border border-gray-200 shadow-sm"}`}
+                    >
+                      <span className={`h-1.5 w-1.5 rounded-full ${dotColors[i % dotColors.length]}`}></span>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                {items.length > 4 && (
+                  <button
+                    type="button"
+                    className={`${theme === 'dark' ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-700'} text-sm font-semibold mt-2`}
+                    onClick={() => toggleGroup(category)}
+                  >
+                    {expandedGroups[category] ? 'Show less' : 'Show more'}
+                  </button>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
