@@ -2,16 +2,33 @@ import React, { useEffect } from 'react';
 import myPhoto from '/Pfp.png';
 import DecryptedText from '../reactbits/DecryptedText';
 import ExperienceSection from '../components/ExperienceSection.jsx';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Home = ({ theme, experienceRef }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() =>{
     if (location.hash === '#experience'){
         experienceRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [location]);
+
+  const handleViewWork = (e) => {
+    e.preventDefault();
+    if (experienceRef?.current) {
+      experienceRef.current.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', '#experience');
+    } else {
+      // Fallback to hash navigation
+      window.location.hash = '#experience';
+    }
+  };
+
+  const handleContact = (e) => {
+    e.preventDefault();
+    navigate('/contact');
+  };
   
   return (
     <div className={`${theme === "dark" 
@@ -42,13 +59,13 @@ const Home = ({ theme, experienceRef }) => {
                   Building the Future, One Line at a Time
                 </span>
               </div>
-              <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
-                <button className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${theme === "dark" 
+              <div className="relative z-0 flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                <button onClick={handleViewWork} className={`px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${theme === "dark" 
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl" 
                   : "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl"}`}>
                   View My Work
                 </button>
-                <button className={`px-8 py-4 rounded-full font-semibold border-2 transition-all duration-300 transform hover:scale-105 ${theme === "dark" 
+                <button onClick={handleContact} className={`px-8 py-4 rounded-full font-semibold border-2 transition-all duration-300 transform hover:scale-105 ${theme === "dark" 
                   ? "border-gray-300 text-gray-300 hover:bg-white hover:text-gray-800" 
                   : "border-gray-700 text-gray-700 hover:bg-gray-800 hover:text-white"}`}>
                   Contact Me
